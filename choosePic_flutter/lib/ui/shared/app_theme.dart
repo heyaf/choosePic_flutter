@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../../core/const/constValue.dart';
+import '../../core/tool/toolfuction.dart';
 
 class Apptheme {
   static const double bodyFontSize = 12;
@@ -10,6 +12,7 @@ class Apptheme {
   static final Color normalColor = Color.fromARGB(71, 187, 255, 1);
 
   static final ThemeData normalTheme = ThemeData(
+      // primarySwatch: toolFuction().createMaterialColor(constValue.kMainColor16),
       primarySwatch: Colors.pink,
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,

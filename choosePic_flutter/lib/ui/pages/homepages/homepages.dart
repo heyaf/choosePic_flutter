@@ -1,3 +1,6 @@
+import 'package:choosePic_flutter/core/model/home_category.dart';
+import 'package:choosePic_flutter/core/network/jsonParse.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
 class HomePages extends StatefulWidget {
@@ -9,14 +12,47 @@ class HomePages extends StatefulWidget {
 
 class _HomePagesState extends State<HomePages> {
   @override
+  List<home_categoryModel> homecategoryList = [];
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    jsonParse.getjsonParse().then((value) {
+      setState(() {
+        homecategoryList.addAll(value);
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('首页'),
-      ),
-      body: Center(
-        child: Text('首页'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('美食卡片'),
+        ),
+        body: GridView.builder(
+            padding: EdgeInsets.all(20.0),
+            itemCount: homecategoryList.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20.0,
+                crossAxisSpacing: 10,
+                childAspectRatio: 1.5),
+            itemBuilder: (BuildContext context, int index) {
+              final Color bgColor = homecategoryList[index].finaColor;
+              return Container(
+                decoration: BoxDecoration(
+                    color: bgColor,
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                        colors: [bgColor.withOpacity(.5), bgColor])),
+                child: Center(
+                  child: Text(
+                    homecategoryList[index].title,
+                    style: TextStyle(fontSize: ScreenUtil().setSp(18)),
+                  ),
+                ),
+              );
+            }));
   }
 }

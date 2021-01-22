@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'initialize_item.dart';
+import '../../../core/const/constValue.dart';
 
 class HYFMainScreen extends StatefulWidget {
   static const String routeName = '/';
@@ -18,7 +19,7 @@ class _HYFMainScreenState extends State<HYFMainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPages,
-        selectedItemColor: Color.fromRGBO(51, 51, 51, 1),
+        // selectedItemColor: constValue.kMainColor,
         unselectedItemColor: Color.fromRGBO(102, 102, 102, 1),
         items: items,
         onTap: (value) {
