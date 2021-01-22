@@ -1,5 +1,6 @@
 import 'package:choosePic_flutter/core/model/home_category.dart';
 import 'package:choosePic_flutter/core/network/jsonParse.dart';
+import 'package:choosePic_flutter/ui/pages/detail_page.dart/homemealpage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
@@ -40,18 +41,24 @@ class _HomePagesState extends State<HomePages> {
                 childAspectRatio: 1.5),
             itemBuilder: (BuildContext context, int index) {
               final Color bgColor = homecategoryList[index].finaColor;
-              return Container(
-                decoration: BoxDecoration(
-                    color: bgColor,
-                    borderRadius: BorderRadius.circular(12),
-                    gradient: LinearGradient(
-                        colors: [bgColor.withOpacity(.5), bgColor])),
-                child: Center(
-                  child: Text(
-                    homecategoryList[index].title,
-                    style: TextStyle(fontSize: ScreenUtil().setSp(18)),
+              return InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: bgColor,
+                      borderRadius: BorderRadius.circular(12),
+                      gradient: LinearGradient(
+                          colors: [bgColor.withOpacity(.5), bgColor])),
+                  child: Center(
+                    child: Text(
+                      homecategoryList[index].title,
+                      style: TextStyle(fontSize: ScreenUtil().setSp(18)),
+                    ),
                   ),
                 ),
+                onTap: () {
+                  Navigator.of(context).pushNamed(homemealPage.routeName,
+                      arguments: homecategoryList[index]);
+                },
               );
             }));
   }

@@ -1,10 +1,15 @@
+import 'package:choosePic_flutter/core/viewmodel/meal_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './ui/shared/app_theme.dart';
 import './core/router/route.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => HYFMealViewModel(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +21,7 @@ class MyApp extends StatelessWidget {
         allowFontScaling: false,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'F美食卡片',
+          title: '美食卡片',
           theme: Apptheme.normalTheme,
           initialRoute: HYFRoute.initinalRoute,
           routes: HYFRoute.routers,
