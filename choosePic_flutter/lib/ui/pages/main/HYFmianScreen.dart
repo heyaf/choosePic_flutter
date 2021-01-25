@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'initialize_item.dart';
-import '../../../core/const/constValue.dart';
 
 class HYFMainScreen extends StatefulWidget {
   static const String routeName = '/';

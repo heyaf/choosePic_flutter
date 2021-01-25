@@ -1,4 +1,5 @@
 import 'package:choosePic_flutter/core/model/mealsModel.dart';
+import 'package:choosePic_flutter/ui/pages/detail/detail_content.dart';
 import 'package:flutter/material.dart';
 
 class HYDetailScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class HYDetailScreen extends StatelessWidget {
         title: Text(meal.title),
       ),
       body: Center(
-        child: Text(meal.title),
+        child: detailContentWidget(),
       ),
     );
   }
