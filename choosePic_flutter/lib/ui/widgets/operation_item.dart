@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HYOperationItem extends StatelessWidget {
   final Widget _icon;
@@ -8,14 +9,18 @@ class HYOperationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        _icon,
-        SizedBox(
-          width: 3,
-        ),
-        Text(_title)
-      ],
+    return Container(
+      width: ScreenUtil().setWidth(80),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _icon,
+          SizedBox(
+            width: 3,
+          ),
+          Text(_title)
+        ],
+      ),
     );
   }
 }

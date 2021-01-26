@@ -29,6 +29,7 @@ class detailContentWidget extends StatelessWidget {
 //头部图片
   Widget headerBanner() {
     return Container(
+      width: double.infinity,
       child: Image.network(_meals.imageUrl),
     );
   }

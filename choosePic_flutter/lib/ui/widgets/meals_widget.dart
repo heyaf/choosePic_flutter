@@ -1,6 +1,9 @@
 import 'package:choosePic_flutter/core/model/mealsModel.dart';
+import 'package:choosePic_flutter/core/viewmodel/mealfav_viewModel.dart';
 import 'package:choosePic_flutter/ui/pages/detail/detail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import './operation_item.dart';
 
 class HYFMealItem extends StatelessWidget {
@@ -67,9 +70,33 @@ class HYFMealItem extends StatelessWidget {
         children: <Widget>[
           HYOperationItem(Icon(Icons.schedule), "${_meal.duration}分钟"),
           HYOperationItem(Icon(Icons.restaurant), "简单"),
-          HYOperationItem(Icon(Icons.favorite), "未收藏"),
+          buildCollectItem()
         ],
       ),
     );
+  }
+
+  Widget buildCollectItem() {
+    return Consumer<HYFmealfavoViewModel>(
+        builder: (context, hyffavVM, children) {
+      final iconData =
+          hyffavVM.isFavMeal(_meal) ? Icons.favorite : Icons.favorite_border;
+      final iconColor = hyffavVM.isFavMeal(_meal) ? Colors.red : Colors.black;
+      final textshow = hyffavVM.isFavMeal(_meal) ? '收藏' : '未收藏';
+      return Container(
+        // width: ScreenUtil().setWidth(40),
+        child: InkWell(
+          child: HYOperationItem(
+              Icon(
+                iconData,
+                color: iconColor,
+              ),
+              textshow),
+          onTap: () {
+            hyffavVM.handleFavMeal(_meal);
+          },
+        ),
+      );
+    });
   }
 }

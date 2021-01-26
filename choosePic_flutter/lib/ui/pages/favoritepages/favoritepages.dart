@@ -1,3 +1,4 @@
+import 'package:choosePic_flutter/ui/pages/favoritepages/favoriteContent.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePages extends StatefulWidget {
@@ -11,12 +12,9 @@ class _FavoritePagesState extends State<FavoritePages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('我的收藏'),
-      ),
-      body: Center(
-        child: Text('我的收藏'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('我的收藏'),
+        ),
+        body: HYFFavContent());
   }
 }

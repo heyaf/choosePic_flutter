@@ -1,6 +1,7 @@
 import 'package:choosePic_flutter/core/model/home_category.dart';
 import 'package:choosePic_flutter/core/network/jsonParse.dart';
 import 'package:choosePic_flutter/ui/pages/detail_page.dart/homemealpage.dart';
+import 'package:choosePic_flutter/ui/pages/homepages/homedrawDrawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,7 @@ class _HomePagesState extends State<HomePages> {
         appBar: AppBar(
           title: Text('美食卡片'),
         ),
+        drawer: HYFHomeDrawer(),
         body: GridView.builder(
             padding: EdgeInsets.all(20.0),
             itemCount: homecategoryList.length,
