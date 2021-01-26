@@ -21,13 +21,10 @@ class HttpRequest {
       // 2.很多页面的访问必须要求携带Token,那么就可以在这里判断是有Token
 
       // 3.对参数进行一些处理,比如序列化处理等
-      print("拦截了请求");
       return options;
     }, onResponse: (Response response) {
-      print("拦截了响应");
       return response;
     }, onError: (DioError error) {
-      print("拦截了错误");
       return error;
     });
     List<Interceptor> inters = [dInter];
