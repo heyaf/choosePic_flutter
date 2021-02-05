@@ -1,5 +1,6 @@
 import 'package:choosePic_flutter/core/viewmodel/meal_view_model.dart';
 import 'package:choosePic_flutter/core/viewmodel/mealfav_viewModel.dart';
+import 'package:dokit/dokit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './ui/shared/app_theme.dart';
@@ -7,13 +8,25 @@ import './core/router/route.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => HYFMealViewModel()),
-      ChangeNotifierProvider(create: (context) => HYFmealfavoViewModel()),
-    ],
-    child: MyApp(),
-  ));
+  DoKit.runApp(
+    app: DoKitApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => HYFMealViewModel()),
+          ChangeNotifierProvider(create: (context) => HYFmealfavoViewModel()),
+        ],
+        child: MyApp(),
+      ),
+    ),
+    useInRelease: true,
+  );
+  // runApp(MultiProvider(
+  //   providers: [
+  //     ChangeNotifierProvider(create: (context) => HYFMealViewModel()),
+  //     ChangeNotifierProvider(create: (context) => HYFmealfavoViewModel()),
+  //   ],
+  //   child: MyApp(),
+  // ));
 }
 
 class MyApp extends StatelessWidget {

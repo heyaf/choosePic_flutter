@@ -27,6 +27,8 @@ dependencies:
   flutter_screenutil: ^4.0.2+3
   dio: ^3.0.10
   provider: ^4.3.3
+  # 滴滴工具类
+  dokit: 0.2.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
