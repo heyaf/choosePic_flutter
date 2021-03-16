@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         builder: () {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: '美食卡片',
+            title: '美食卡片集合',
             theme: Apptheme.normalTheme,
             initialRoute: HYFRoute.initinalRoute,
             routes: HYFRoute.routers,
